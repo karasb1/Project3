@@ -20,24 +20,30 @@ int main()
 		b = c;
 	}
 	while (a < b) {
-		SetConsoleTextAttribute(hConsole, 0x05);
 		if (a % 2 == 0) {
-			cout << a << " ";
+			cout << a << " - ";
+			SetConsoleTextAttribute(hConsole, 5);
+			cout << "Even" << endl;
+			a++;
+			SetConsoleTextAttribute(hConsole, 7);
+			continue;
 		}
-		a++;
-	}
-	SetConsoleTextAttribute(hConsole, 0x07);
-	while (a < b) {
-		if (a % 2 != 0) {
-			cout << a << " ";
-		}
-		a++;
-	}
-	while (a < b) {
 		if (a % 7 == 0) {
-			cout << a << " ";
+			cout << a << " - ";
+			SetConsoleTextAttribute(hConsole, 9);
+			cout << "%7" << endl;
+			a++;
+			SetConsoleTextAttribute(hConsole, 7);
+			continue;
 		}
-		a++;
+		if (a % 2 != 0) {
+			cout << a << " - ";
+			SetConsoleTextAttribute(hConsole, 8);
+			cout << "Odd" << endl;
+			a++;
+			SetConsoleTextAttribute(hConsole, 7);
+			continue;
+		}
 	}
 	return 0;
 }
